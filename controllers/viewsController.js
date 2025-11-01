@@ -10,7 +10,7 @@ exports.alert = (req, res, next) => {
     res.locals.alert =
       "Your booking was successful! If your booking doesn't show up immediately, please come back later.";
   } else {
-    res.locals.alert = null;
+    res.locals.alert = '';
   }
   next();
 };
