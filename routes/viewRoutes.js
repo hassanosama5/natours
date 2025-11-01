@@ -11,7 +11,7 @@ const router = express.Router();
 //     user: 'Hassan Osama',
 //   });
 // });
-router.use(viewsController.alerts);
+router.use(viewsController.alert);
 
 router.get('/', authController.isLoggedIn, viewsController.getOverview);
 
