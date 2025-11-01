@@ -98,3 +98,6 @@ if (bookBtn)
     const { tourId } = e.target.dataset; //the element that was clcked
     bookTour(tourId);
   });
+
+const alertMessages = document.querySelector('body').dataset.alert;
+if (alert) showAlert('success', alertMessage);
