@@ -1,0 +1,42 @@
+extends base
+
+block content
+  main.main
+    .login-form
+      h2.heading-secondary.ma-bt-lg Create your account
+
+      form.form.form--signup
+        .form__group
+          label.form__label(for='name') Full name
+          input#name.form__input(type='text', placeholder='Your full name', required)
+
+        .form__group
+          label.form__label(for='email') Email address
+          input#email.form__input(type='email', placeholder='you@example.com', required)
+
+        .form__group
+          label.form__label(for='password') Password
+          input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+
+        .form__group.ma-bt-md
+          label.form__label(for='passwordConfirm') Confirm password
+          input#passwordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+
+        // 🧩 Role selection
+        .form__group
+          label.form__label(for='role') Account type
+          select#role.form__input(required)
+            option(value='user' selected) Regular User
+            option(value='guide') Tour Guide
+            option(value='admin') Admin
+
+        // 🔐 Admin verification twist (hidden by default)
+        .form__group#adminKeyGroup(style='display:none')
+          label.form__label(for='adminKey') Admin Access Key
+          input#adminKey.form__input(type='password', placeholder='Enter admin secret key')
+
+        .form__group
+          button.btn.btn--green(type='submit') Sign up
+
+  // 👇 Make sure your bundled JS is loaded here
+  script(src='/js/bundle.js')
