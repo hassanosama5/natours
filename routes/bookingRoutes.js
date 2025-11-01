@@ -9,11 +9,7 @@ router.use(authController.protect);
 //POST reviews
 //POST tours/:tourId/reviews
 
-router.get(
-  '/checkout-session/:tourId',
-  authController.protect,
-  bookingController.getCheckoutSession,
-);
+router.get('/checkout-session/:tourId', bookingController.getCheckoutSession);
 
 router.use(authController.restrictTo('admin', 'lead-guide'));
 
