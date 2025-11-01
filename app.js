@@ -17,6 +17,7 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./routes/bookingController');
 const viewRouter = require('./routes/viewRoutes');
 
 dotenv.config({ path: './config.env' }); // Load BEFORE any app code
@@ -87,6 +88,12 @@ const limiter = rateLimit({
   message: 'Too many requests from this IP, please try again in an hour!',
 });
 app.use('/api', limiter);
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout,
+); //mynfaash yakhod JSON lazm stream ashan kda aamlnaha abl body parser
 
 // Body parser and cookies
 app.use(express.json({ limit: '10kb' }));
